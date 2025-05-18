@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.FXMLController">
+   <children>
+      <VBox alignment="CENTER" layoutX="157.0" prefHeight="360.0" prefWidth="420.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar prefHeight="26.0" prefWidth="420.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Datei">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#beendenKlick" onMenuValidation="#beendenKlick" text="Beenden" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Hilfe">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#infoKlick" onMenuValidation="#infoKlick" text="Software Version" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox alignment="CENTER" prefHeight="255.0" prefWidth="420.0">
+               <children>
+                  <TableView prefHeight="135.0" prefWidth="288.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Ziffer" />
+                      <TableColumn prefWidth="75.0" text="Wert" />
+                    </columns>
+                  </TableView>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="78.0" prefWidth="420.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="291.0" layoutY="23.0" mnemonicParsing="false" onAction="#beendenKlick" prefHeight="35.0" prefWidth="100.0" text="Beenden" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
