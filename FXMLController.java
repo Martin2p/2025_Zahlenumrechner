@@ -35,4 +35,30 @@ public class FXMLController {
 			info.setHeaderText("Zahlenumrechner Version 1.0");
 			info.show();
 		}
+		//Methode zum Umwandeln (in Arbeit)
+		@FXML protected void umwandeln(ActionEvent event) {
+			
+			String inhalt = eingabe.getText();
+			
+			System.out.println(inhalt);
+			
+			for (int i = 0; i < inhalt.length(); i++) {
+				
+				switch (inhalt) {
+					case "I": ausgabe.setText("1");
+					break;
+					case "V": ausgabe.setText("5");
+					break;
+					case "X": ausgabe.setText("10");
+					break;
+					case "L": ausgabe.setText("50");
+					break;
+					case "C": ausgabe.setText("100");
+					break;
+					case "D": ausgabe.setText("500");
+					break;
+					case "M": ausgabe.setText("1000");
+					break;
+				}
+			}
 }
