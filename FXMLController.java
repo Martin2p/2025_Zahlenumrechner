@@ -37,28 +37,20 @@ public class FXMLController {
 		}
 		//Methode zum Umwandeln (in Arbeit)
 		@FXML protected void umwandeln(ActionEvent event) {
+			String rom = eingabeRom.getText();
 			
-			String inhalt = eingabe.getText();
+			char[] inhaltRom = rom.toCharArray();
 			
-			System.out.println(inhalt);
+			System.out.println(inhaltRom);
 			
-			for (int i = 0; i < inhalt.length(); i++) {
+			
+			for (int i = 0; i < inhaltRom.length; i++) {
 				
-				switch (inhalt) {
-					case "I": ausgabe.setText("1");
-					break;
-					case "V": ausgabe.setText("5");
-					break;
-					case "X": ausgabe.setText("10");
-					break;
-					case "L": ausgabe.setText("50");
-					break;
-					case "C": ausgabe.setText("100");
-					break;
-					case "D": ausgabe.setText("500");
-					break;
-					case "M": ausgabe.setText("1000");
-					break;
-				}
+				
+
+				
+			}
+				
+				
 			}
 }
