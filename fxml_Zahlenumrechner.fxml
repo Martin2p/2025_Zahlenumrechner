@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.FXMLController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.FXMLController">
    <children>
       <VBox alignment="CENTER" layoutX="157.0" prefHeight="360.0" prefWidth="420.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <MenuBar prefHeight="26.0" prefWidth="420.0">
+            <MenuBar prefHeight="19.0" prefWidth="500.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Datei">
                   <items>
@@ -33,7 +33,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <HBox alignment="CENTER" prefHeight="400.0" prefWidth="500.0">
+            <HBox alignment="CENTER" prefHeight="327.0" prefWidth="500.0">
                <children>
                   <GridPane gridLinesVisible="true" prefHeight="335.0" prefWidth="287.0">
                     <columnConstraints>
@@ -85,18 +85,19 @@
                   </GridPane>
                </children>
             </HBox>
-            <AnchorPane prefHeight="202.0" prefWidth="420.0">
+            <AnchorPane prefHeight="214.0" prefWidth="500.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="337.0" layoutY="141.0" mnemonicParsing="false" onAction="#beendenKlick" prefHeight="35.0" prefWidth="100.0" text="Beenden" textAlignment="CENTER" />
-                  <TextField fx:id="eingabeRom" alignment="TOP_RIGHT" layoutX="14.0" layoutY="32.0" prefHeight="25.0" prefWidth="200.0" />
-                  <Label layoutX="14.0" layoutY="15.0" text="Bitte römische Ziffern eingeben:" />
-                  <Label layoutX="274.0" layoutY="15.0" text="Ergibt:" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="158.0" mnemonicParsing="false" onAction="#beendenKlick" prefHeight="25.0" prefWidth="80.0" text="Beenden" textAlignment="CENTER" />
+                  <TextField fx:id="eingabeRom" alignment="TOP_RIGHT" layoutX="27.0" layoutY="32.0" prefHeight="25.0" prefWidth="186.0" />
+                  <Label layoutX="29.0" layoutY="15.0" text="Bitte römische Ziffern eingeben:" />
+                  <Label layoutX="274.0" layoutY="15.0" text="Ergebnis:" />
                   <Label fx:id="ausgabeWert" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="274.0" layoutY="32.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 2;" textAlignment="RIGHT" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="141.0" mnemonicParsing="false" onAction="#umwandeln" prefHeight="35.0" prefWidth="100.0" text="Umwandeln" textAlignment="CENTER" />
-                  <TextField fx:id="eingabeWert" alignment="TOP_RIGHT" layoutX="14.0" layoutY="101.0" prefHeight="25.0" prefWidth="200.0" />
-                  <Label layoutX="14.0" layoutY="83.0" text="Bitte Zahlenwert eingeben:" />
-                  <Label fx:id="ausgabeRom" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="274.0" layoutY="101.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 2;" textAlignment="RIGHT" />
-                  <Label layoutX="277.0" layoutY="83.0" text="Ergibt:" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="66.0" mnemonicParsing="false" onAction="#umwandelnRom" prefHeight="25.0" prefWidth="80.0" text="Umwandeln" textAlignment="CENTER" />
+                  <TextField fx:id="eingabeWert" alignment="TOP_RIGHT" layoutX="27.0" layoutY="122.0" prefHeight="25.0" prefWidth="186.0" />
+                  <Label layoutX="27.0" layoutY="105.0" text="Bitte Zahlenwert eingeben:" />
+                  <Label fx:id="ausgabeRom" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="274.0" layoutY="122.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 2;" textAlignment="RIGHT" />
+                  <Label layoutX="274.0" layoutY="105.0" text="Ergebnis:" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="158.0" mnemonicParsing="false" onAction="#umwandelnWert" prefHeight="25.0" prefWidth="80.0" text="Umwandeln" textAlignment="CENTER" />
                </children>
             </AnchorPane>
          </children>
