@@ -35,6 +35,40 @@ public class FXMLController {
 			info.setHeaderText("Zahlenumrechner Version 1.0");
 			info.show();
 		}
+	
+		//Hilfsmethode für Umwandeln Char zu Wert
+		public int charZuWert(char c) {
+			int wert = 0;
+			
+			switch (c) {
+		    	case 'I':
+		    		wert = 1; 
+		    		break;
+		        case 'V': 
+		        	wert = 5; 
+		        	break;
+		        case 'X': 
+		        	wert = 10; 
+		        	break;
+		        case 'L':
+		        	wert = 50; 
+		        	break;
+		        case 'C': 
+		        	wert = 100; 
+		        	break;
+		        case 'D': 
+		        	wert = 500; 
+		        	break;
+		        case 'M': 
+		        	wert = 1000; 
+		        	break;
+		        //für ungültiges Zeichen
+		        default: wert = 0; 
+		    }
+		    return wert;
+		}
+
+	
 		//Methode zum Umwandeln (in Arbeit)
 		@FXML protected void umwandeln(ActionEvent event) {
 			String rom = eingabeRom.getText();
