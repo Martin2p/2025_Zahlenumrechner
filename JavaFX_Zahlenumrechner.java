@@ -24,7 +24,7 @@ public class JavaFX_Zahlenumrechner extends Application {
 		trController.setMeineStage(meineBuehne);
 			
 		//Scene erstellen
-		Scene meineScene = new Scene(root, 500, 700);
+		Scene meineScene = new Scene(root, 500, 560);
 			
 		//den Titel über stage setzen
 		meineBuehne.setTitle("Zahlenumrechner von Martin Tastler");
