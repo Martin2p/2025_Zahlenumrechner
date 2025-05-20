@@ -41,50 +41,88 @@ public class FXMLController {
 			int wert = 0;
 			
 			switch (c) {
-		    	case 'I':
-		    		wert = 1; 
+		    	case 'I': wert = 1; 
 		    		break;
-		        case 'V': 
-		        	wert = 5; 
+		        case 'V': wert = 5; 
 		        	break;
-		        case 'X': 
-		        	wert = 10; 
+		        case 'X': wert = 10; 
 		        	break;
-		        case 'L':
-		        	wert = 50; 
+		        case 'L': wert = 50; 
 		        	break;
-		        case 'C': 
-		        	wert = 100; 
+		        case 'C': wert = 100; 
 		        	break;
-		        case 'D': 
-		        	wert = 500; 
+		        case 'D': wert = 500; 
 		        	break;
-		        case 'M': 
-		        	wert = 1000; 
+		        case 'M': wert = 1000; 
 		        	break;
 		        //für ungültiges Zeichen
-		        default: wert = 0; 
+		        default: return 0;
 		    }
 		    return wert;
 		}
-
-	
-		//Methode zum Umwandeln (in Arbeit)
-		@FXML protected void umwandeln(ActionEvent event) {
+		
+		
+		//Methode zum Umwandeln
+		@FXML protected void umwandelnRom(ActionEvent event) {
+			
 			String rom = eingabeRom.getText();
 			
 			char[] inhaltRom = rom.toCharArray();
 			
-			System.out.println(inhaltRom);
-			
+			int summe = 0;
 			
 			for (int i = 0; i < inhaltRom.length; i++) {
-				
-				
 
+				int aktuellerWert = charZuWert(inhaltRom[i]);
+			
+				//Fehlerhafte Eingabe mitteilen
+				if (aktuellerWert == 0) {
+					ausgabeWert.setText("Ungültiges Zeichen verwendet: " + inhaltRom[i]);
+					//abbrechen
+					return;
+				}
 				
+				int naechsterWert = 0;
+					
+					
+				if (i + 1 < inhaltRom.length) {
+						
+					naechsterWert = charZuWert(inhaltRom[i+1]);
+				}
+					
+				if (aktuellerWert < naechsterWert) {
+					summe -= aktuellerWert;
+				} else {
+					summe += aktuellerWert;
+				}
 			}
+			ausgabeWert.setText(String.valueOf(summe));
+		}
+		
+		//Hilfsmethode für das Umwandeln von Arabischen Zahlen in Römische
+		public String wertZuChar(int zahl) {
+			
+			//Anlegen von 2 Arrays
+			int[] werte = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};	
+			String[] roemisch = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+		
+			String ergebnis = "";
+			
+			for (int i = 0; i < werte.length; i++) {
 				
-				
+				while (zahl >= werte[i]) {
+					ergebnis += roemisch[i];
+					zahl -= werte[i];
+				}
 			}
+		return ergebnis;
+		}
+		
+		@FXML protected void umwandelnWert(ActionEvent event) {
+			
+			int zahl = Integer.parseInt(eingabeWert.getText());
+			String rom = wertZuChar(zahl);
+			
+			ausgabeRom.setText(rom);
+		}
 }
