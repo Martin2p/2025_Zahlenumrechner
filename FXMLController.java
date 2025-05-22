@@ -11,21 +11,10 @@ import javafx.stage.Stage;
 
 
 public class FXMLController {
-	
-	/*
-	 * Deklarationen
-	*/
-	
-	@FXML private Stage meineBuehne;
-	@FXML private Label ausgabeWert;
-	@FXML private Label ausgabeRom;
-	
-	@FXML private TextField eingabeRom;
-	@FXML private TextField eingabeWert;
-	
 	/*
 	 * Die Methoden	
 	*/
+		
 		//die Methode setzt die Bühne auf den übergebenen Wert
 		public void setMeineStage(Stage meineStage) {
 			this.meineBuehne = meineStage;
@@ -43,11 +32,13 @@ public class FXMLController {
 			info.show();
 		}
 		
-		//Hilfsmethode für Umwandeln Char zu Wert, sie benötigt einen Buchstaben als Parameter
+		
+		//Hilfsmethode wandelt römisches Zeichen in arabisches um
+		//benötigt einen Buchstaben als Parameter
 		public int charZuWert(char c) {
 			int wert = 0;
 			
-			//eingelesene Buchstaben auswerten und einem Wert zuweißen
+			//eingelesene Buchstaben auswerten und einem Wert zuweisen
 			switch (c) {
 		    	case 'I': wert = 1; 
 		    		break;
@@ -69,17 +60,18 @@ public class FXMLController {
 		    return wert;
 		}
 		
+		
 		//Methode zum Umwandeln
 		@FXML protected void umwandelnRom(ActionEvent event) {
 			
-			//einer Stringvariabel wird der Eingabewert zugewießen per getText()
+			//einer Stringvariabel wird der Eingabewert zugewiesen per getText()
 			String rom = eingabeRom.getText();
 			
-			//ein neues Character-Array wird mit dem Inhalt aus der Stringvariabel gefüllt.
+			//Ein neues char-Array wird mit dem Inhalt aus der Stringvariable gefüllt.
 			//Ein Array ist hier notwendig um mehrere eingegebene Zeichen einzeln auswerten zu können.
 			char[] inhaltRom = rom.toCharArray();
 			
-			//Startvariabel für das Ergebnis
+			//Startvariable für das Ergebnis
 			int summe = 0;
 			
 			//per For-Schleife wird das char-Array durchlaufen
@@ -87,9 +79,9 @@ public class FXMLController {
 
 				/*
 				 * Die Hilfsmethode "charZuWert" wird nun an der Stelle im Char-Array 
-				 * angewendet wo die Schleifenvariabel i sich befindet
+				 * angewendet wo sich die Schleifenvariable i befindet
 				 * 
-				 * Den Rückgabewert der Hilfsmethode wird einer int-Variabel zugewießen
+				 * Den Rückgabewert der Hilfsmethode wird einer int-Variable zugewiesen
 				*/
 				int aktuellerWert = charZuWert(inhaltRom[i]);
 			
@@ -128,6 +120,7 @@ public class FXMLController {
 				} else {
 					summe += aktuellerWert;
 				}
+	
 			}
 			//Ausgabe der Summe in das entsprechende Label
 			ausgabeWert.setText(String.valueOf(summe));
@@ -146,23 +139,36 @@ public class FXMLController {
 			//Startvariabel: ein leerer String
 			String ergebnis = "";
 			
-			
-			
+			//eine For-Schleife durchläuft das Werte-Array
 			for (int i = 0; i < werte.length; i++) {
 				
+				/*
+				 * Solange die eingegebene Zahl größer oder gleich dem Schleifenindex i an einer Stelle
+				 * im Werte-Array ist, wird der entsprechende Buchstabe an der selben Indexstelle im 
+				 * roemisch-Array zum Ergebnis hinzugefügt
+				 *
+				 * Von der eingegebenen Zahl wird anschließend der Wert wieder abgezogen, der soeben als Bedingung
+				 * in der While-Schleife aufgeführt wurde.
+				*/
 				while (zahl >= werte[i]) {
 					ergebnis += roemisch[i];
 					zahl -= werte[i];
 				}
 			}
+		//das Ergebnis zurück geben
 		return ergebnis;
 		}
 		
+		//Die Methode zum Umwandeln von Wert zu Character
 		@FXML protected void umwandelnWert(ActionEvent event) {
 			
+			//Eingabewert in eine ganze Zahl umwandeln
 			int zahl = Integer.parseInt(eingabeWert.getText());
+			
+			//String-Variable ergibt sich aus der integer-Zahl umgewandelt mit der Hilfsmethode in einen Character
 			String rom = wertZuChar(zahl);
 			
+			//Ausgabe der römischen Ziffern
 			ausgabeRom.setText(rom);
 		}
 }
